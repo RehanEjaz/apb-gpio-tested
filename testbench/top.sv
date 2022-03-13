@@ -28,57 +28,57 @@ module top#(  // parameters
  ( output logic HCLK=0,
   output logic HRESETn=0);
  
-     always begin : clk_gen
-     #10 HCLK = ~HCLK;
- end
-     initial begin
-     #20 HRESETn = 1'b1;
-     
-     end
-   
-       logic [GPIO_PINS-1:0]   gpio_i;
-       logic                   PSEL;
-       logic                   PENABLE;
-       logic [PADDR_SIZE-1:0]  PADDR;
-       logic                   PWRITE;
-       logic [GPIO_PINS-1:0]   PWDATA;
-       logic [GPIO_PINS/8-1:0] PSTRB;
-     
-      logic                    PREADY;
-      logic [GPIO_PINS-1:0]    PRDATA;
-      logic                    PSLVERR;
-      logic                    irq_o;
-      logic [GPIO_PINS-1:0]    gpio_o,
-                                    gpio_oe;
+        always begin : clk_gen
+            #10 HCLK = ~HCLK;
+        end
+        initial begin
+            #20 HRESETn = 1'b1;
+        
+        end
+    
+        logic [GPIO_PINS-1:0]   gpio_i;
+        logic                   PSEL;
+        logic                   PENABLE;
+        logic [PADDR_SIZE-1:0]  PADDR;
+        logic                   PWRITE;
+        logic [GPIO_PINS-1:0]   PWDATA;
+        logic [GPIO_PINS/8-1:0] PSTRB;
+        
+        logic                    PREADY;
+        logic [GPIO_PINS-1:0]    PRDATA;
+        logic                    PSLVERR;
+        logic                    irq_o;
+        logic [GPIO_PINS-1:0]    gpio_o,
+                                        gpio_oe;
                                     
-     rev_gpio #(
-     .GPIO_PINS(GPIO_PINS),
-     .PADDR_SIZE(PADDR_SIZE),
-     .STAGES(STAGES)
-     ) dut (
-     
-     .pclk(HCLK),
-     .gpio_i(gpio_i),
-     .prstn(HRESETn),
-     .psel(PSEL),
-     .paddr(PADDR),
-     .penable(PENABLE),
-     .pwrite(PWRITE),
-     .pwrdata(PWDATA),
-     .prddata(PRDATA),
-     .pstrb(PSTRB),
-     .pready(PREADY),
-     .pslverr(PSLVERR),
-     .irq_o(irq_o),
-     .gpio_o(gpio_o),
-     .gpio_oe(gpio_oe)
-     
-     );    
-     gpio_testbench #(.GPIO_PINS(GPIO_PINS),
-          .PADDR_SIZE(PADDR_SIZE),
-          .STAGES(STAGES)  )
-     tb(.*);                           
-                                    
-endmodule
+        rev_gpio #(
+        .GPIO_PINS(GPIO_PINS),
+        .PADDR_SIZE(PADDR_SIZE),
+        .STAGES(STAGES)
+        ) dut (
+        
+        .pclk(HCLK),
+        .gpio_i(gpio_i),
+        .prstn(HRESETn),
+        .psel(PSEL),
+        .paddr(PADDR),
+        .penable(PENABLE),
+        .pwrite(PWRITE),
+        .pwrdata(PWDATA),
+        .prddata(PRDATA),
+        .pstrb(PSTRB),
+        .pready(PREADY),
+        .pslverr(PSLVERR),
+        .irq_o(irq_o),
+        .gpio_o(gpio_o),
+        .gpio_oe(gpio_oe)
+        
+        );    
+        gpio_testbench #(.GPIO_PINS(GPIO_PINS),
+            .PADDR_SIZE(PADDR_SIZE),
+            .STAGES(STAGES)  )
+        tb(.*);                           
+                                        
+    endmodule
 
 
