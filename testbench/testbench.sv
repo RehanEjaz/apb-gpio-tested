@@ -1,17 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Micro Electronics Research Lab
+// Engineer: Rehan Ejaz
 // 
 // Create Date: 10.03.2022 19:24:23
-// Design Name: 
+// Design Name: Automated Random Testbench for GPIO peripheral 
 // Module Name: gpio_testbech
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
+// Project Name: ReV-SoC 
+// Description: Randomized stimulus generation for testing GPIO peripheral
 // 
 // Revision:
 // Revision 0.01 - File Created
